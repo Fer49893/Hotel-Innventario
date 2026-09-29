@@ -36,11 +36,11 @@ El personal de recepción requiere liberar las habitaciones lo más rápido posi
 
 | ID | Nombre | Prioridad | Origen |
 | :--- | :--- | :--- | :--- |
-| RF-001 | Registro de inventario físico | Imprescindible | Entrevista / Visión del producto |
-| RF-002 | Consulta de estado por habitación | Imprescindible | Entrevista / Visión del producto |
-| RF-003 | Alerta de reposición | Importante | Visión del producto / Elicitación de requisitos |
-| RF-004 | Registro de bajas por estado | Imprescindible | Entrevista / Regla de negocio |
-| RF-005 | Consulta de inventario consolidado | Importante | Visión del producto / Entrevista |
+| RF-001 | Registar inventario físico | Imprescindible | Entrevista / Visión del producto |
+| RF-002 | Consultar estado por habitación | Imprescindible | Entrevista / Visión del producto |
+| RF-003 | Mandar alertas de reposición | Importante | Visión del producto / Elicitación de requisitos |
+| RF-004 | Registrar bajas por estado | Imprescindible | Entrevista / Regla de negocio |
+| RF-005 | Consultar inventario consolidado | Importante | Visión del producto / Entrevista |
 
 ### 3.2 Fichas
 
