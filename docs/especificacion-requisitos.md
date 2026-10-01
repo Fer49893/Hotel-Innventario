@@ -274,17 +274,12 @@ El personal de recepción requiere liberar las habitaciones lo más rápido posi
 | 01/10/2026 | Secciones 3, 5 y 6 | Actualización a versión 1.3: Estructuración formal de las fichas de los 10 RF, inclusión del CU-03 redactado y sincronización de matriz de trazabilidad con Figma. | Refinamiento y preparación para entrega formal de prototipo y documentación. |
 
 ---
+## 8. Comentarios de mi tupla 
 
-## Antes de entregar
+El proyecto está muy completo y demuestra un análisis sólido desde la definición inicial hasta la propuesta visual. La Ficha de Dominio ubica perfecto el contexto del hotel boutique de 12 habitaciones, y la Especificación de Requisitos v1.3 cubre bien las necesidades operativas de cada área, manteniendo una lógica clara entre lo que el negocio requiere y lo que el sistema debe hacer.
 
-- [x] Todos los requisitos tienen identificador único y ninguno está repetido
-- [x] Cada requisito expresa una sola idea
-- [x] Cada requisito funcional tiene criterio de aceptación comprobable
-- [x] Cada requisito no funcional tiene una métrica, no solo un adjetivo
-- [x] El campo Origen distingue lo confirmado por el cliente de lo que sigo suponiendo
-- [x] Hay al menos un requisito no funcional por cada atributo de calidad que impone mi tipo de sistema
-- [x] Ningún requisito impone una solución técnica
-- [x] Todos los requisitos caben dentro del alcance declarado
-- [x] La tabla de trazabilidad está completa
-- [x] Mi dupla revisó el documento y su revisión está registrada
-- [x] Borré los ejemplos y las instrucciones en cursiva
+La estructura por roles para Limpieza, Recepción y Administración está bien integrada en todos los entregables. Tener delimitadas las tareas desde el inicio de sesión evita cruces de permisos innecesarios y ayuda a que cada usuario se enfoque únicamente en sus actividades, como el control de blancos o los reportes de mermas.
+
+En la parte visual, el prototipo resuelve de forma ágil la consulta de consumos del minibar para el check-out. El uso de indicadores visuales para detectar habitaciones con faltantes y la comparación directa entre la dotación esperada y la real facilitan mucho la captura y reducen errores operativos.
+
+Para dejar el trabajo impecable, vale la pena ajustar un par de detalles técnicos. En el diagrama UML, las líneas de asociación entre los actores y los casos de uso deben ser continuas en lugar de punteadas para cumplir con el estándar, además de cuidar que no se corten los íconos de los actores en el margen. En el prototipo móvil, convendría dar un poco más de margen superior para que la fecha no se encima con la barra del teléfono, y agregar un botón explícito de confirmación al registrar los consumos.
