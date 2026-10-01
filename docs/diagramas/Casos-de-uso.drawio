@@ -1,0 +1,102 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="en9jlvxwBYYDOxxVLAG_">
+    <mxGraphModel dx="2298" dy="1932" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GNuKiTf2SMevel6j7jz5-1" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=250;height=30;" value="Sistema de gestión de inventario de hotel" vertex="1">
+          <mxGeometry height="720" width="1041" x="119" y="-140" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-6" edge="1" parent="1" source="GNuKiTf2SMevel6j7jz5-2" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#1ba1e2;strokeColor=#006EAF;endArrow=none;endFill=0;strokeWidth=2;" target="qpr-k02Fd20Tp4VbkzP8-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNuKiTf2SMevel6j7jz5-2" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="Recepcionista" vertex="1">
+          <mxGeometry height="60" width="30" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-2" edge="1" parent="1" source="GNuKiTf2SMevel6j7jz5-3" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#008a00;strokeColor=#005700;endArrow=none;endFill=0;strokeWidth=2;" target="qpr-k02Fd20Tp4VbkzP8-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GNuKiTf2SMevel6j7jz5-3" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="Personal de limpieza" vertex="1">
+          <mxGeometry height="60" width="30" x="20" y="-82" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-19" edge="1" parent="1" source="Vm35p2OIfF74mnAG0wFr-6" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=1;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#fa6800;strokeColor=#C73500;strokeWidth=2;endArrow=none;endFill=0;" target="qpr-k02Fd20Tp4VbkzP8-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Vm35p2OIfF74mnAG0wFr-6" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="Dueño del hotel" vertex="1">
+          <mxGeometry height="60" width="30" x="20" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="qpr-k02Fd20Tp4VbkzP8-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Definir la dotación estándar por habitación" vertex="1">
+          <mxGeometry height="70" width="140" x="409" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="qpr-k02Fd20Tp4VbkzP8-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Registrar el estado del inventario por habitación" vertex="1">
+          <mxGeometry height="70" width="140" x="670" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-4" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-13" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#60a917;strokeColor=#2D7600;endArrow=none;endFill=0;strokeWidth=2;" target="qpr-k02Fd20Tp4VbkzP8-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-5" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-13" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#60a917;strokeColor=#2D7600;endArrow=none;endFill=0;strokeWidth=2;" target="qpr-k02Fd20Tp4VbkzP8-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="-23.43" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-20" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-13" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#60a917;strokeColor=#2D7600;strokeWidth=2;endArrow=none;endFill=0;" target="qpr-k02Fd20Tp4VbkzP8-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qpr-k02Fd20Tp4VbkzP8-13" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Consultar el estado del inventario por habitación" vertex="1">
+          <mxGeometry height="90" width="140" x="414" y="-100" as="geometry" />
+        </mxCell>
+        <mxCell id="qpr-k02Fd20Tp4VbkzP8-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Consultar consumos del mini bar para check-out por habitación" vertex="1">
+          <mxGeometry height="85" width="151" x="403.5" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="qpr-k02Fd20Tp4VbkzP8-16" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Registrar la reposición de blancos" vertex="1">
+          <mxGeometry height="70" width="140" x="660" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="qpr-k02Fd20Tp4VbkzP8-20" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Registrar el cambio de estado en blancos" vertex="1">
+          <mxGeometry height="70" width="140" x="660" y="-130" as="geometry" />
+        </mxCell>
+        <mxCell id="qpr-k02Fd20Tp4VbkzP8-22" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Consultar el inventario consolidado general del hotel" vertex="1">
+          <mxGeometry height="70" width="140" x="414.5" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="qpr-k02Fd20Tp4VbkzP8-23" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Autorizar la baja por merma" vertex="1">
+          <mxGeometry height="70" width="140" x="409" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-3" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-32" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#60a917;strokeColor=#2D7600;endArrow=none;endFill=0;strokeWidth=2;" target="qpr-k02Fd20Tp4VbkzP8-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="-55" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-12" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-32" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#fa6800;strokeColor=#C73500;strokeWidth=2;endArrow=none;endFill=0;" target="qpr-k02Fd20Tp4VbkzP8-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-13" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-32" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;endArrow=none;endFill=0;strokeWidth=2;fillColor=#fa6800;strokeColor=#C73500;" target="qpr-k02Fd20Tp4VbkzP8-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-14" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-32" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#fa6800;strokeColor=#C73500;strokeWidth=2;endArrow=none;endFill=0;" target="qpr-k02Fd20Tp4VbkzP8-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-16" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-32" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#1ba1e2;strokeColor=#006EAF;strokeWidth=2;endArrow=none;endFill=0;" target="qpr-k02Fd20Tp4VbkzP8-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-17" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-32" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#1ba1e2;strokeColor=#006EAF;endArrow=none;endFill=0;strokeWidth=2;" target="QCFr1JZLPsuINP-UBRRM-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-18" edge="1" parent="1" source="qpr-k02Fd20Tp4VbkzP8-32" style="edgeStyle=orthogonalEdgeStyle;shape=wire;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;elbow=vertical;fillColor=#1ba1e2;strokeColor=#006EAF;strokeWidth=2;endArrow=none;endFill=0;" target="QCFr1JZLPsuINP-UBRRM-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qpr-k02Fd20Tp4VbkzP8-32" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Autenticar usuario por rol" vertex="1">
+          <mxGeometry height="70" width="140" x="150" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Registrar la reposición de insumos del minibar" vertex="1">
+          <mxGeometry height="70" width="140" x="414" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="QCFr1JZLPsuINP-UBRRM-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Consultar estado de habitaciones para check-in" vertex="1">
+          <mxGeometry height="90" width="140" x="414.5" y="190" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
