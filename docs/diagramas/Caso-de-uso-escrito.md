@@ -24,8 +24,7 @@
 * **Flujos alternos:**
   * **3a. La habitación está completa:** El usuario verifica que no falta nada, no modifica ninguna cantidad, presiona "Guardar" y el sistema marca la habitación como "Lista para asignar" de forma inmediata.
   * **5a. Se detecta una prenda dañada o sucia:** En la pestaña *Blancos*, el usuario selecciona el botón de estado `Dañado` o `Lavandería` en la prenda correspondiente antes de guardar; el sistema descuenta la pieza de la habitación y actualiza el registro global.
-  * **5b. Interrupción por falta de conexión a red:** El sistema guarda el registro localmente en el dispositivo y reintenta la sincronización en segundo plano mostrando el mensaje: *"Registro guardado offline. Sincronizando..."*.
-
+  
 * **Postcondición:**
   Se registran los consumos de la habitación, actualizando el mapa de recepción en tiempo real y emitiendo alertas de reposición si existen faltantes.
 
