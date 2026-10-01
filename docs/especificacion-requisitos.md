@@ -4,15 +4,15 @@
 
 - **Sistema:** Hotel Innventario
 - **Autor:** Jose Fernando Saucedo Balderas
-- **Versión:** 1.0
-- **Fecha de la última actualización:** 24/09/2026
+- **Versión:** 1.3
+- **Fecha de la última actualización:** 01/10/2026
 
 ---
 
 ## 1. Propósito y alcance
 
-- **Propósito del documento:** Definir y detallar de manera formal las especificaciones de requisitos funcionales y no funcionales para el desarrollo del sistema "Hotel Innventario". Este documento sirve de referencia para poder desarrollar el sistema de forma adecuada y verificar los entregables del prototipo.
-- **Alcance del sistema:** Control digital del inventario operativo para las 12 habitaciones del hotel boutique. Abarca el seguimiento en tiempo real del estado y reposición de productos del minibar (alimentos y bebidas) y blancos (sábanas, toallas, cobijas y almohadas). Soporta roles para personal de recepción, personal de limpieza y el dueño del hotel, permitiendo el registro de revisiones físicas, consulta de estado por habitación, alertas de reposición, seguimiento de prendas en lavandería externa o dañadas, y el reporte consolidado para compras.
+- **Propósito del documento:** Definir y detallar de manera formal las especificaciones de requisitos funcionales y no funcionales para el desarrollo del sistema "Hotel Innventario". Este documento sirve de referencia para desarrollar el sistema de forma adecuada y verificar los entregables del prototipo en Figma y los modelos de análisis.
+- **Alcance del sistema:** Control digital del inventario operativo para las 12 habitaciones del hotel boutique. Abarca el seguimiento en tiempo real del estado y reposición de productos del minibar (alimentos y bebidas) y blancos (sábanas, toallas, cobijas, almohadas). Soporta roles para personal de recepción, personal de limpieza y el dueño del hotel, permitiendo el registro de revisiones físicas, consulta de estado por habitación, alertas de reposición, seguimiento de prendas en lavandería externa o dañadas, y el reporte consolidado para compras.
 - **Fuera del alcance:** Control de reservaciones de habitaciones, cobro de tarifas de hospedaje, facturación electrónica (CFDI), gestión de nómina, órdenes de compra automáticas a proveedores y aplicaciones o interfaces orientadas hacia el uso directo de los huéspedes.
 
 ---
@@ -36,63 +36,120 @@ El personal de recepción requiere liberar las habitaciones lo más rápido posi
 
 | ID | Nombre | Prioridad | Origen |
 | :--- | :--- | :--- | :--- |
-| RF-001 | Registar inventario físico | Imprescindible | Entrevista / Visión del producto |
-| RF-002 | Consultar estado por habitación | Imprescindible | Entrevista / Visión del producto |
-| RF-003 | Mandar alertas de reposición | Importante | Visión del producto / Elicitación de requisitos |
-| RF-004 | Registrar bajas por estado | Imprescindible | Entrevista / Regla de negocio |
-| RF-005 | Consultar inventario consolidado | Importante | Visión del producto / Entrevista |
+| **RF-001** | Autenticación de usuarios por rol | Imprescindible | Regla de negocio / Visión del producto |
+| **RF-002** | Gestión de dotación estándar | Imprescindible | Entrevista  |
+| **RF-003** | Registro de conteo físico en minibar | Imprescindible | Entrevista / Contexto de limpieza |
+| **RF-004** | Verificación y registro de blancos | Imprescindible | Entrevista / Contexto de limpieza |
+| **RF-005** | Consulta de consumos para check-out | Imprescindible | Entrevista / Recepción |
+| **RF-006** | Monitor del estado de habitaciones | Imprescindible | Visión del producto / Operación |
+| **RF-007** | Confirmación de reposición de insumos | Importante | Visión del producto |
+| **RF-008** | Clasificación y trazabilidad de blancos | Imprescindible | Regla de negocio / Auditoría |
+| **RF-009** | Reporte de inventario consolidado general | Importante | Visión del producto / Dueño |
+| **RF-010** | Autorización y auditoría de bajas por merma | Imprescindible | Regla de negocio / Dueño |
+
+---
 
 ### 3.2 Fichas
 
-#### RF-001 · Registro de inventario físico
+#### RF-001 · Autenticación de usuarios por rol
 
 | Campo | Contenido |
 | :--- | :--- |
-| **Descripción** | El sistema debe permitir al personal de limpieza registrar el inventario físico encontrado de blancos y productos de minibar al momento de revisar una habitación. |
-| **Origen** | Entrevista y Visión del producto. |
+| **Descripción** | El sistema debe permitir el acceso mediante contraseña e identificar el rol del usuario (Personal de Limpieza, Recepción o Dueño del Hotel), desplegando únicamente las vistas y permisos correspondientes. |
+| **Origen** | Regla de negocio y Visión del producto. |
 | **Prioridad** | Imprescindible |
-| **Criterio de aceptación** | Dado que la camarera selecciona una habitación limpia, cuando ajusta los consumos de minibar y faltantes de blancos frente a la dotación estándar y presiona "Guardar", el sistema registra la revisión y notifica los cargos pendientes a recepción. Si falta algún campo obligatorio por seleccionar, el sistema muestra un mensaje de advertencia y no procesa el registro. |
-| **Relacionado con** | RF-002, RF-003, RNF-USA-001, RNF-REN-001 |
+| **Criterio de aceptación** | Al ingresar la contraseña y seleccionar el rol, el sistema redirige al usuario a su panel correspondiente. Si la contraseña es incorrecta o no coincide con el rol seleccionado, el sistema niega el acceso y muestra un mensaje de advertencia. |
+| **Relacionado con** | RNF-SEG-001, RF-003, RF-005, RF-009 |
 
-#### RF-002 · Consulta de estado por habitación
+#### RF-002 · Gestión de dotación estándar
 
 | Campo | Contenido |
 | :--- | :--- |
-| **Descripción** | El sistema debe permitir al personal de recepción consultar en tiempo real el detalle de los artículos y consumos registrados en una habitación específica. |
-| **Origen** | Entrevista con el personal de recepción (septiembre 2026). |
+| **Descripción** | El sistema debe permitir únicamente al rol de Dueño del hotel configurar y modificar la cantidad base estándar de insumos de minibar y prendas de blancos que debe tener cada una de las 12 habitaciones. |
+| **Origen** | Entrevista con stakeholder y Visión del producto. |
 | **Prioridad** | Imprescindible |
-| **Criterio de aceptación** | Al ingresar el número de habitación desde la pantalla de recepción, el sistema despliega el desglose exacto de los productos consumidos del minibar listos para cobro y el estado actual de los blancos (Completo o Incompleto). |
-| **Relacionado con** | RF-001, RNF-REN-001, RNF-SEG-001 |
+| **Criterio de aceptación** | Al modificar las cantidades base desde el panel de administración y presionar "Guardar Cambios", el sistema actualiza la plantilla de referencia para todas las revisiones futuras. Si se intenta guardar un valor negativo, el sistema bloquea la acción. |
+| **Relacionado con** | RF-003, RF-004, RF-009 |
 
-#### RF-003 · Alerta de reposición
+#### RF-003 · Registro de conteo físico en minibar
 
 | Campo | Contenido |
 | :--- | :--- |
-| **Descripción** | El sistema debe generar automáticamente una lista de reposición cuando el inventario de una habitación esté por debajo de la dotación estándar establecida. |
-| **Origen** | Visión del producto y validación con stakeholder. |
+| **Descripción** | El sistema debe permitir al personal de limpieza registrar el número físico real de productos de minibar encontrados en una habitación utilizando botones de incremento y decremento (+ / -). |
+| **Origen** | Entrevista y contexto operativo de limpieza. |
+| **Prioridad** | Imprescindible |
+| **Criterio de aceptación** | Al ajustar las cantidades encontradas frente a la dotación esperada y presionar "Guardar Conteo", el sistema calcula automáticamente las diferencias, registra el consumo de la habitación y lo notifica a recepción. |
+| **Relacionado con** | RF-005, RF-006, RNF-USA-001 |
+
+#### RF-004 · Verificación y registro de blancos
+
+| Campo | Contenido |
+| :--- | :--- |
+| **Descripción** | El sistema debe permitir al personal de limpieza verificar y reportar las piezas existentes de blancos (sábanas, toallas, fundas y cobijas) al finalizar la limpieza de un cuarto. |
+| **Origen** | Entrevista y contexto operativo de limpieza. |
+| **Prioridad** | Imprescindible |
+| **Criterio de aceptación** | Al confirmar las piezas de ropa de cama presentes en la habitación, el sistema registra el estado de los blancos y genera una alerta a recepción si faltan unidades requeridas. |
+| **Relacionado con** | RF-006, RF-008, RNF-USA-001 |
+
+#### RF-005 · Consulta de consumos para check-out
+
+| Campo | Contenido |
+| :--- | :--- |
+| **Descripción** | El sistema debe calcular y mostrar al personal de recepción la lista detallada y el acumulado de productos consumidos del minibar por habitación para su cobro en caja durante la salida del huésped. |
+| **Origen** | Entrevista con el personal de recepción. |
+| **Prioridad** | Imprescindible |
+| **Criterio de aceptación** | Al seleccionar el número de habitación desde la pestaña de consumos, el sistema despliega el desglose exacto de los artículos faltantes listos para su cobro y permite marcarlos como cobrados/liquidados. |
+| **Relacionado con** | RF-003, RNF-REN-001 |
+
+#### RF-006 · Monitor del estado de habitaciones
+
+| Campo | Contenido |
+| :--- | :--- |
+| **Descripción** | El sistema debe mostrar en tiempo real la disponibilidad de las 12 habitaciones mediante un semáforo visual de estados (Lista / Completa, Pendiente de revisión, Pendiente de reposición). |
+| **Origen** | Visión del producto y necesidades operativas de recepción. |
+| **Prioridad** | Imprescindible |
+| **Criterio de aceptación** | El mapa de habitaciones actualiza dinámicamente sus colores e indicadores en menos de 2 segundos tras cada guardado de limpieza o reposición de recepción. |
+| **Relacionado con** | RF-003, RF-004, RF-007, RNF-REN-001 |
+
+#### RF-007 · Confirmación de reposición de insumos
+
+| Campo | Contenido |
+| :--- | :--- |
+| **Descripción** | El sistema debe permitir registrar el reabastecimiento de insumos o blancos faltantes en una habitación marcándola como resurtida. |
+| **Origen** | Visión del producto. |
 | **Prioridad** | Importante |
-| **Criterio de aceptación** | Al registrarse un consumo de minibar o faltante de blancos en el registro de limpieza, la habitación cambia automáticamente a estado "Pendiente de reposición" y aparece listada en el panel de alertas de recepción y surtido con el detalle de los artículos faltantes. |
-| **Relacionado con** | RF-001, RF-002 |
+| **Criterio de aceptación** | Al confirmar que los productos o blancos faltantes ya fueron colocados en la habitación, el sistema borra la alerta activa y actualiza el estado del cuarto a "Completa / Lista para asignar". |
+| **Relacionado con** | RF-006, RNF-REN-001 |
 
-#### RF-004 · Registro de bajas por estado
+#### RF-008 · Clasificación y trazabilidad de blancos
 
 | Campo | Contenido |
 | :--- | :--- |
-| **Descripción** | El sistema debe permitir cambiar el estado de un artículo de blancos a "En lavandería" o "Dañado" para actualizar el stock disponible sin eliminar el registro del artículo. |
-| **Origen** | Regla de negocio identificada en entrevista y Visión del producto. |
+| **Descripción** | El sistema debe permitir cambiar el estado de las prendas de blancos a clasificaciones como "En uso", "En lavandería externa" o "Dañado / Merma". |
+| **Origen** | Regla de negocio e inspección de procesos de lavandería. |
 | **Prioridad** | Imprescindible |
-| **Criterio de aceptación** | Al marcar un blanco como "En lavandería" o "Dañado", el artículo descuenta su presencia en la habitación asignada pero mantiene su trazabilidad en el inventario global, impidiendo que el personal no autorizado lo elimine definitivamente del sistema. |
-| **Relacionado con** | RF-005, RNF-SEG-001 |
+| **Criterio de aceptación** | Al seleccionar un estado como "Lavandería" o "Dañado", el artículo descuenta su presencia de la habitación pero mantiene su registro rastreable en el inventario consolidado global. |
+| **Relacionado con** | RF-004, RF-009, RF-010 |
 
-#### RF-005 · Consulta de inventario consolidado
+#### RF-009 · Reporte de inventario consolidado general
 
 | Campo | Contenido |
 | :--- | :--- |
-| **Descripción** | El sistema debe permitir al perfil del dueño consultar el reporte de existencias totales del inventario general del hotel. |
-| **Origen** | Visión del producto y entrevistas operativas. |
+| **Descripción** | El sistema debe generar para el perfil de administración un resumen general de las existencias del hotel dividiendo el stock entre habitaciones, almacén central, lavandería y mermas. |
+| **Origen** | Visión del producto y entrevista con el dueño. |
 | **Prioridad** | Importante |
-| **Criterio de aceptación** | Al ingresar con el rol de Dueño, la pantalla principal de administración muestra un resumen de existencias globales clasificadas por: en uso en habitaciones, en almacén central, en lavandería externa y marcados como dañados. |
-| **Relacionado con** | RF-004, RNF-SEG-001 |
+| **Criterio de aceptación** | Al ingresar con el rol de Dueño, el dashboard despliega los indicadores numéricos del stock total y barras de disponibilidad por categoría en tiempo real. |
+| **Relacionado con** | RF-008, RF-010, RNF-SEG-001 |
+
+#### RF-010 · Autorización y auditoría de bajas por merma
+
+| Campo | Contenido |
+| :--- | :--- |
+| **Descripción** | El sistema debe permitir únicamente al usuario con rol de Dueño autorizar la baja definitiva de artículos marcados como mermas o destruidos, exigiendo la captura del motivo. |
+| **Origen** | Regla de negocio y auditoría de activos del hotel. |
+| **Prioridad** | Imprescindible |
+| **Criterio de aceptación** | Para autorizar una baja definitiva, el sistema exige ingresar una justificación en texto; de lo contrario, el botón de confirmación permanece inhabilitado. |
+| **Relacionado con** | RF-008, RF-009, RNF-SEG-001 |
 
 ---
 
@@ -102,9 +159,11 @@ El personal de recepción requiere liberar las habitaciones lo más rápido posi
 
 | ID | Atributo | Nombre | Prioridad | Origen |
 | :--- | :--- | :--- | :--- | :--- |
-| RNF-SEG-001 | Seguridad | Control de acceso basado en roles | Imprescindible | Visión del producto / Regla de negocio |
-| RNF-USA-001 | Usabilidad | Eficiencia operativa en interfaz | Imprescindible | Contexto operativo de limpieza |
-| RNF-REN-001 | Rendimiento | Tiempo de respuesta y sincronización | Imprescindible | Contexto operativo de check-out |
+| **RNF-SEG-001** | Seguridad | Control de acceso basado en roles | Imprescindible | Regla de negocio / Visión del producto |
+| **RNF-USA-001** | Usabilidad | Eficiencia operativa en interfaz móvil | Imprescindible | Contexto operativo de limpieza |
+| **RNF-REN-001** | Rendimiento | Tiempo de respuesta y sincronización | Imprescindible | Contexto operativo de check-out |
+
+---
 
 ### 4.2 Fichas
 
@@ -113,47 +172,77 @@ El personal de recepción requiere liberar las habitaciones lo más rápido posi
 | Campo | Contenido |
 | :--- | :--- |
 | **Atributo de calidad** | Seguridad |
-| **Descripción** | El sistema debe restringir el acceso a las funciones mediante autenticación, garantizando que el personal de limpieza solo pueda registrar y modificar revisiones de habitaciones, mientras que únicamente el usuario con rol de dueño debe tener permisos para consultar el inventario general consolidado y autorizar bajas de artículos. |
+| **Descripción** | El sistema debe restringir el acceso a las funciones mediante autenticación, garantizando que el personal de limpieza solo pueda registrar revisiones de habitaciones, mientras que únicamente el usuario con rol de dueño debe tener permisos para consultar el inventario general consolidado y autorizar bajas por merma. |
 | **Métrica** | 100% de los intentos de acceso a vistas consolidadas o eliminación de artículos realizados por usuarios con rol de Limpieza o Recepción deben ser bloqueados por la aplicación. |
 | **Origen** | Regla de negocio y atributo de seguridad declarado en Visión del producto. |
 | **Prioridad** | Imprescindible |
 | **Por qué importa** | Evita la manipulación no autorizada del inventario global y previene la eliminación maliciosa o accidental de registros sobre pérdidas o mermas de insumos. |
-| **Afecta a** | RF-001, RF-002, RF-004, RF-005 |
+| **Afecta a** | RF-001, RF-009, RF-010 |
 
-#### RNF-USA-001 · Eficiencia operativa en interfaz
+#### RNF-USA-001 · Eficiencia operativa en interfaz móvil
 
 | Campo | Contenido |
 | :--- | :--- |
 | **Atributo de calidad** | Usabilidad |
-| **Descripción** | La interfaz de usuario debe permitir al personal de limpieza completar el registro de revisión de una habitación en un máximo de tres pasos o pantallas, siendo navegable desde dispositivos móviles sin requerir capacitación técnica formal previa. |
-| **Métrica** | Medición de la tarea "Registrar revisión": completada en $\le 3$ pantallas desde el inicio de la acción hasta la confirmación final por usuarios de prueba sin capacitación. |
+| **Descripción** | La interfaz de usuario debe permitir al personal de limpieza completar el registro de revisión de una habitación en un máximo de tres pantallas o pasos, siendo navegable desde dispositivos móviles sin requerir capacitación técnica formal previa. |
+| **Métrica** | Medición de la tarea "Registrar revisión": completada en $\le 3$ pantallas desde la selección de la habitación hasta la confirmación final por usuarios de prueba sin capacitación. |
 | **Origen** | Necesidades del personal operativo e inspección en campo. |
 | **Prioridad** | Imprescindible |
 | **Por qué importa** | La revisión ocurre durante el flujo ágil de limpieza. Si la interfaz es compleja, el personal abandonará el sistema móvil y volverá al uso de registros impresos en papel. |
-| **Afecta a** | RF-001 |
+| **Afecta a** | RF-003, RF-004 |
 
 #### RNF-REN-001 · Tiempo de respuesta y sincronización
 
 | Campo | Contenido |
 | :--- | :--- |
 | **Atributo de calidad** | Rendimiento / Disponibilidad |
-| **Descripción** | El sistema debe procesar y reflejar los registros de consumos y cambios de estado en la base de datos central en un tiempo no mayor a 2 segundos bajo condiciones normales de red, asegurando que recepción disponga de la información actualizada durante el proceso de check-out. |
-| **Métrica** | Tiempo de latencia $\le 2.0$ segundos transcurridos desde que se presiona "Guardar" en la aplicación móvil hasta que los datos están visibles en el módulo de recepción. |
+| **Descripción** | El sistema debe procesar y reflejar los registros de consumos y cambios de estado en el módulo de recepción en un tiempo no mayor a 2 segundos bajo condiciones normales de red, asegurando información actualizada durante el check-out. |
+| **Métrica** | Tiempo de latencia $\le 2.0$ segundos transcurridos desde que se presiona "Guardar" en la aplicación móvil hasta que los datos están visibles en la pantalla de recepción. |
 | **Origen** | Análisis de la transacción crítica de check-out en recepción. |
 | **Prioridad** | Imprescindible |
 | **Por qué importa** | Si el tiempo de sincronización excede este límite, el cliente abandona la recepción antes de que los consumos sean visualizados, provocando fugas de ingresos no cobrados. |
-| **Afecta a** | RF-001, RF-002 |
+| **Afecta a** | RF-005, RF-006, RF-007 |
 
 ---
 
 ## 5. Casos de uso
 
-*Los casos de uso detallados se incorporarán formalmente en la semana 7 tras el modelado y refinamiento de interacciones. A continuación se resume la vinculación proyectada:*
+### 5.1 Caso de Uso Escrito Completo
 
-* **CU-01 · Registrar revisión de habitación:** Realiza **RF-001**, **RF-003** y cumple con **RNF-USA-001**.
-* **CU-02 · Reportar cambio de estado de blancos:** Realiza **RF-004**.
-* **CU-03 · Consultar consumos para Check-Out:** Realiza **RF-002** y cumple con **RNF-REN-001**.
-* **CU-04 · Consultar inventario consolidado:** Realiza **RF-005** y cumple con **RNF-SEG-001**.
+#### CU-03 · Registrar la revisión física de una habitación
+
+* **Actor principal:** Personal de limpieza
+* **Objetivo:** Reportar el conteo físico real de insumos de minibar y prendas de blancos encontrados al terminar de limpiar una habitación.
+* **Precondición:** El personal de limpieza inició sesión en la aplicación móvil y la habitación seleccionada se encuentra en estado "Pendiente de revisión".
+* **Escenario principal:**
+  1. El personal de limpieza selecciona la habitación a revisar en el mapa general de habitaciones.
+  2. El sistema carga la lista predeterminada de artículos de minibar y blancos según la dotación estándar asignada.
+  3. En la pestaña *Minibar*, el usuario ajusta mediante los controles (+ / -) la cantidad exacta de productos encontrados físicamente en el cuarto.
+  4. El sistema calcula automáticamente las diferencias y muestra las etiquetas de faltante/consumo (ej. *"Faltante: 1 (Consumo)"*).
+  5. El usuario cambia a la pestaña *Blancos*, verifica las piezas existentes y presiona el botón "Guardar Conteo y Notificar a Recepción".
+  6. El sistema guarda el registro con fecha, hora y usuario, y actualiza el estado de la habitación a "Pendiente de reposición" (si hay faltantes) o "Completa / Lista".
+* **Flujos alternos:**
+  * **3a. La habitación está completa:** El usuario verifica que no falta nada, no modifica ninguna cantidad, presiona "Guardar" y el sistema marca la habitación como "Lista para asignar" de forma inmediata.
+  * **5a. Se detecta una prenda dañada o sucia:** En la pestaña *Blancos*, el usuario selecciona el botón de estado Dañado o Lavandería en la prenda correspondiente antes de guardar; el sistema descuenta la pieza de la habitación y actualiza el registro global.
+  * **5b. Interrupción por falta de conexión a red:** El sistema guarda el registro localmente en el dispositivo y reintenta la sincronización en segundo plano mostrando el mensaje: *"Registro guardado offline. Sincronizando..."*.
+* **Postcondición:** Se registran los consumos de la habitación, actualizando el mapa de recepción en tiempo real y emitiendo alertas de reposición si existen faltantes.
+* **Requisitos que realiza:** RF-003, RF-004, RF-006, RNF-USA-001, RNF-REN-001
+
+---
+
+### 5.2 Resumen de Casos de Uso
+
+| ID | Caso de Uso | Actor Principal | Requisitos que Realiza |
+| :--- | :--- | :--- | :--- |
+| **CU-01** | Autenticar usuario por rol | Todos los roles | RF-001, RNF-SEG-001 |
+| **CU-02** | Definir la dotación estándar por habitación | Dueño del hotel | RF-002 |
+| **CU-03** | Registrar la revisión física de una habitación | Personal de limpieza | RF-003, RF-004, RF-006, RNF-USA-001, RNF-REN-001 |
+| **CU-04** | Consultar consumos para check-out | Recepcionista | RF-005, RNF-REN-001 |
+| **CU-05** | Consultar el estado del inventario por habitación | Recepcionista / Limpieza | RF-005, RF-006 |
+| **CU-06** | Registrar la reposición de insumos | Personal de limpieza / Recepción | RF-006, RF-007, RNF-REN-001 |
+| **CU-07** | Registrar el cambio de estado en blancos | Personal de limpieza | RF-008 |
+| **CU-08** | Consultar el inventario consolidado general | Dueño del hotel | RF-009, RNF-SEG-001 |
+| **CU-09** | Autorizar la baja por merma | Dueño del hotel | RF-010, RNF-SEG-001 |
 
 ---
 
@@ -161,14 +250,19 @@ El personal de recepción requiere liberar las habitaciones lo más rápido posi
 
 | Requisito | Origen | Caso de uso | Elemento del prototipo |
 | :--- | :--- | :--- | :--- |
-| **RF-001** | Entrevista / Visión del producto | CU-01 Registrar revisión de habitación | Pantalla móvil de revisión de habitación |
-| **RF-002** | Entrevista / Módulo Recepción | CU-03 Consultar consumos para Check-Out | Vista de mapa y detalle de habitación |
-| **RF-003** | Visión del producto | CU-01 Registrar revisión / CU-03 Consultar | Módulo de alertas de reposición |
-| **RF-004** | Entrevista / Regla de negocio | CU-02 Reportar cambio de estado de blancos | Menú desplegable de estado de prenda |
-| **RF-005** | Visión del producto / Entrevista | CU-04 Consultar inventario consolidado | Dashboard administrador (Dueño) |
-| **RNF-SEG-001** | Regla de negocio / Visión del producto | Todos los Casos de Uso | Pantalla de Login / Middleware de roles |
-| **RNF-USA-001** | Contexto operativo de limpieza | CU-01 Registrar revisión de habitación | Layout simplificado de 3 pasos (móvil) |
-| **RNF-REN-001** | Transacción crítica de Check-out | CU-01 y CU-03 | Componente de sincronización en tiempo real |
+| **RF-001** | Regla de negocio / Visión | CU-01 Autenticar usuario por rol | Pantalla de Login unificada por roles |
+| **RF-002** | Entrevista / Stakeholder | CU-02 Definir dotación estándar | Panel de administración de Dotación Estándar |
+| **RF-003** | Entrevista / Limpieza | CU-03 Registrar revisión física | Formulario móvil de revisión (Pestaña Minibar) |
+| **RF-004** | Entrevista / Limpieza | CU-03 Registrar revisión física | Formulario móvil de revisión (Pestaña Blancos) |
+| **RF-005** | Entrevista / Recepción | CU-04 Consultar consumos check-out | Módulo de Consumos por Habitación (Recepción) |
+| **RF-006** | Visión del producto | CU-05 Consultar estado / CU-06 Reposición | Monitor general de habitaciones (Semáforo) |
+| **RF-007** | Visión del producto | CU-06 Registrar reposición | Pantalla de Refill Minibar y Confirmación |
+| **RF-008** | Regla de negocio | CU-07 Registrar cambio estado blancos | Selectores de estado (`En uso`, `Lavandería`, `Dañado`) |
+| **RF-009** | Visión del producto / Dueño | CU-08 Consultar inventario consolidado | Dashboard Consolidado Ejecutivo |
+| **RF-010** | Regla de negocio / Dueño | CU-09 Autorizar baja por merma | Módulo de Autorización de Bajas por Merma |
+| **RNF-SEG-001** | Regla de negocio | CU-01, CU-08, CU-09 | Middleware de autenticación y vistas por rol |
+| **RNF-USA-001** | Contexto de limpieza | CU-03 Registrar revisión física | Layout móvil simplificado en $\le 3$ pasos |
+| **RNF-REN-001** | Transacción check-out | CU-03, CU-04, CU-06 | Componente de sincronización ($\le 2$s) |
 
 ---
 
@@ -176,7 +270,8 @@ El personal de recepción requiere liberar las habitaciones lo más rápido posi
 
 | Fecha | Requisito | Qué cambió | Por qué |
 | :--- | :--- | :--- | :--- |
-| 24/09/2026 | Todos | Creación de la versión 1.0 del documento | Consolidación de especificaciones para la semana 8. |
+| 24/09/2026 | Todos | Creación de la versión 1.0 del documento | Consolidación de especificaciones iniciales para la semana 8. |
+| 01/10/2026 | Secciones 3, 5 y 6 | Actualización a versión 1.3: Estructuración formal de las fichas de los 10 RF, inclusión del CU-03 redactado y sincronización de matriz de trazabilidad con Figma. | Refinamiento y preparación para entrega formal de prototipo y documentación. |
 
 ---
 
