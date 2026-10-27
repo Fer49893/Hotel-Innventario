@@ -1,0 +1,10 @@
+stateDiagram-v2
+[*] --> Agendada
+Agendada --> Confirmada: el dueno confirma
+Agendada --> Cancelada: se cancela a tiempo
+Confirmada --> EnAtencion: paciente ingresa
+EnAtencion --> Atendida: finaliza consulta
+Confirmada --> NoAsistio: tiempo de espera agotado
+Atendida --> [*]
+Cancelada --> [*]
+NoAsistio --> [*]

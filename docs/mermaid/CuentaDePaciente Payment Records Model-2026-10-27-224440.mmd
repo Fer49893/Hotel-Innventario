@@ -1,0 +1,29 @@
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#fff8f4','primaryBorderColor':'#ff5d00'}}}%%
+classDiagram
+%% a[App web] --> b[API] --> c[(Datos)]
+class CuentaDePaciente {
+-saldo: double
+-pagos: List~Pago~
++abonar(monto)
+string
++consultarSaldo()
+double
+}
+class Pago {
+-monto: double
+-fecha: Date
+}
+class Comprobante {
+-folio: string
+-fechaEmision: Date
++imprimir()
+void
+}
+class Paciente {
+-nombre: string
+-tipoMascota: string
+}
+
+Paciente "1" --> "1" CuentaDePaciente : tiene
+CuentaDePaciente "1" --> "*" Pago : registra
+Pago "1" --> "1" Comprobante : genera
