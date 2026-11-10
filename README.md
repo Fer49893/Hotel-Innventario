@@ -1,4 +1,4 @@
-# Ingeniería de software intersemestral
+# Ingeniería de software 
 Proyecto: Hotel Innventario
 
 Autor: Jose Fernando Saucedo Balderas
