@@ -1,0 +1,16 @@
+stateDiagram-v2
+    [*] --> Lista : Alta de habitación en sistema
+
+    Lista --> Ocupada : Check-in de huésped [Recepción]
+    Lista --> Mantenimiento : Reporte de daño o bloqueo [Dueño / Recepción]
+
+    Ocupada --> PendienteRevision : Check-out o solicitud de limpieza [Recepción]
+
+    PendienteRevision --> Lista : Revisión sin faltantes y blanca limpia [Limpieza]
+    PendienteRevision --> PendienteReposicion : Revisión con faltantes detectados [Limpieza]
+    PendienteRevision --> Mantenimiento : Daño grave encontrado en inspección [Limpieza]
+
+    PendienteReposicion --> Lista : Surtido completado y confirmado [Recepción]
+
+    Mantenimiento --> PendienteRevision : Reparación finalizada (requiere limpieza) [Dueño]
+    Mantenimiento --> Lista : Habilitación directa [Dueño]
