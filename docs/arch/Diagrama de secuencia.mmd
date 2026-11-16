@@ -1,0 +1,36 @@
+sequenceDiagram
+    autonumber
+    actor Limpieza as Personal de Limpieza
+    participant UI as VistaRevision (Frontend)
+    participant Hab as Habitacion
+    participant Rev as RevisionHabitacion
+    participant Dot as DotacionEstandar
+    participant Stock as InventarioStock
+    participant Cons as Consumo
+
+    Limpieza->>+UI: registrarConteoFisico(idHabitacion, listaConteos)
+    UI->>+Hab: iniciarRevision(idUsuario, listaConteos)
+    Hab->>Hab: validarEstadoPendienteRevision()
+    
+    Hab->>+Rev: crearRevision(idHabitacion, idUsuario, fecha)
+    Rev->>+Dot: obtenerDotacionPorHabitacion(idHabitacion)
+    Dot-->>-Rev: listaDotacionEsperada
+
+    Rev->>Rev: calcularDiferencias(listaDotacionEsperada, listaConteos)
+
+    alt Conteo válido y stock consistente (Transacción ACID exitosa)
+        Rev->>+Stock: descontarExistencias(idHabitacion, listaFaltantes)
+        Stock-->>-Rev: confirmacionDescuento
+        
+        Rev->>+Cons: generarCargoConsumo(idHabitacion, listaFaltantes)
+        Cons-->>-Rev: consumoRegistrado
+
+        Rev-->>-Hab: revisionCompletada(hayFaltantes)
+        Hab->>Hab: cambiarEstado("Pendiente de reposición")
+        Hab-->>-UI: resultadoExitoso(resumenConsumos)
+        UI-->>Limpieza: Muestra confirmación y alerta de surtido
+    else Error de validación o fallo en transacción ACID (Rollback)
+        Rev-->>Hab: errorTransaccion("Conteo inválido o fallo al actualizar stock")
+        Hab-->>UI: cancelarRevision()
+        UI-->>-Limpieza: Muestra error y mantiene habitación pendiente
+    end
