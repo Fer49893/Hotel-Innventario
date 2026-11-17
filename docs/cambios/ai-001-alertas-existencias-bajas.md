@@ -54,7 +54,7 @@ Lo pedido ("identificar y avisar al personal responsable cuando las existencias 
 | Pruebas | 2 horas |
 | **Total** | **8 horas** |
 
-**De dónde sale este número.** Se comparó con el esfuerzo base del módulo *Inventario y Catálogo* (donde ya existen las operaciones `incrementarStock`, `descontarStock` y `reubicarExistencias`). Se supone que la base de datos PostgreSQL y la estructura de vistas para listar el catálogo ya están definidas, por lo que añadir una columna numérica, una consulta filtrada y un indicador visual en la interfaz toma medio día de desarrollo más sus pruebas unitarias y de integración. No se incluye envío de correos, SMS ni automatización de órdenes de compra con proveedores.
+**De dónde sale este número.** Base: *Inventario y Catálogo* ya tiene `incrementarStock`, `descontarStock` y `reubicarExistencias`, y tanto PostgreSQL como las vistas ya están definidas. Agregar una columna, una consulta filtrada y un indicador visual equivale a medio día (4 h) de implementación; más 2 h de pruebas unitarias y de integración y 2 h de diseño (ajustar requisitos, casos de uso y diagramas) = 8 h. No incluye correos, SMS ni órdenes de compra automáticas.
 
 ## Recomendación
 
