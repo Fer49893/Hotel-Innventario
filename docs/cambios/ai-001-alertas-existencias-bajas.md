@@ -14,7 +14,7 @@ Lo pedido ("identificar y avisar al personal responsable cuando las existencias 
 
 | Artefacto | Unidad | Qué hay que cambiar |
 |---|---|---|
-| Requisito RF-xx | 2 | Ampliar la gestión de catálogo e inventario (RF de administración de artículos y consultas de stock) para permitir definir un umbral mínimo por artículo y listar productos cuyo saldo sea menor o igual a dicho umbral. |
+| Requisito RF-002 RF-009 | 2 | Ampliar la gestión de catálogo e inventario (RF de administración de artículos y consultas de stock) para permitir definir un umbral mínimo por artículo y listar productos cuyo saldo sea menor o igual a dicho umbral. |
 | Caso de uso | 2 | Actualizar el caso de uso de Gestión de Catálogo/Inventario para incluir la configuración de `stockMinimo` y la consulta de existencias bajas, además del flujo de Revisión de Habitación al descontar stock. |
 | Diagrama de clases | 4 | En `Articulo`: agregar `+Int stockMinimo` y `+actualizarStockMinimo(nuevoMinimo) Void`. En `InventarioStock`: agregar `+verificarStockBajo() Boolean` y `+obtenerArticulosStockBajo() List`. |
 | Diagrama de secuencia | 4 | En el diagrama de secuencia del caso de uso *Registrar Revisión y Conteo Físico*, agregar una auto-llamada `verificarStockBajo()` en `InventarioStock` inmediatamente después de `descontarStock(cantidad)` dentro de la transacción ACID. |
@@ -23,9 +23,9 @@ Lo pedido ("identificar y avisar al personal responsable cuando las existencias 
 
 | Artefacto | Unidad | Por qué se ve afectado |
 |---|---|---|
-| Registro de decisión ADR-xx | 3 | Sin impacto. La solución se resuelve como una consulta/indicador interno dentro de la aplicación y la base de datos relacional existente, manteniendo la decisión de aislamiento sin sistemas externos del ADR-001. |
-| Diagrama de contenedores C4 | 3 | Sin impacto en contenedores ni tecnologías desplegables (sigue siendo App Cliente + Backend Monolito Modular + PostgreSQL); únicamente a nivel de componentes internos (C4 Nivel 3), el *Módulo Inventario y Catálogo* expone la consulta de alertas hacia los roles *Recepción* y *Dueño*. |
-| Máquina de estados | 4 | Sin impacto. El ciclo de vida operativo de `Habitacion` (`Lista`, `Ocupada`, `PendienteRevision`, `PendienteReposicion`, `Mantenimiento`) no cambia; una habitación con faltantes sigue pasando a `PendienteReposicion` independientemente de si el almacén tiene stock bajo. |
+| Registro de decisión ADR-001 | 3 | **Sin impacto estructural**, pero delimita la solución: al mantener el sistema 100 % autocontenido sin servicios externos (ADR-001), el aviso solicitado debe resolverse como una consulta visual interna en la app y no mediante notificaciones push, correo o WhatsApp. |
+| Diagrama de componentes / contenedores C4 | 3 | **Afectado a nivel de componentes (C4 Nivel 3):** aunque los 3 contenedores desplegables (PWA, Backend, PostgreSQL) no cambian, el *Módulo Inventario y Catálogo* debe exponer una nueva consulta de alertas hacia los roles *Recepción* y *Dueño* (impactando `RNF-SEG-001`) y conectarse con el flujo de bajas por `Merma` (`RF-010`), un efecto que la solicitud no menciona. |
+| Máquina de estados | 4 | **Sin impacto.** El ciclo de vida operativo de `Habitacion` (`Lista`, `Ocupada`, `PendienteRevision`, `PendienteReposicion`, `Mantenimiento`) no cambia; una habitación con faltantes sigue pasando a `PendienteReposicion` independientemente de si el almacén tiene stock bajo. |
 
 ## Lo que queda sin tocar
 
