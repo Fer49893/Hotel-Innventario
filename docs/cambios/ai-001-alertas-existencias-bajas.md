@@ -61,5 +61,3 @@ Lo pedido ("identificar y avisar al personal responsable cuando las existencias 
 **Aceptar.** Se recomienda aprobar e incorporar la `SC-001` en el diseño de **Hotel Innventario**, ya que aporta un valor operativo alto para prevenir desabasto en el hotel con un costo de diseño e implementación bajo (8 horas), sin comprometer la arquitectura de monolito modular ni las decisiones establecidas en los ADR.
 
 ---
-
-*El objetivo de este documento no es dar un número exacto. Es que cualquiera pueda seguir tu razonamiento y señalarte dónde te equivocaste.*
