@@ -1,0 +1,27 @@
+flowchart TB
+    subgraph Backend["Contenedor Core Backend"]
+        direction TB
+        M1["Módulo de Habitaciones e Inspección<br/>Gestiona estados y revisiones"]
+        M2["Módulo de Consumos de Minibar<br/>Registra artículos consumidos"]
+        M3["Módulo de Operación y Surtido<br/>Gestión de alertas y tareas de resurtido"]
+        M4["Módulo de Inventario y Catálogo<br/>Gestiona artículos, dotaciones y mermas"]
+
+        M1 -->|Notifica consumos| M2
+        M1 -->|Consulta dotaciones| M4
+        M1 -->|Emite alertas de reposición| M3
+        M3 -->|Actualiza stock operativo| M4
+    end
+
+    DB[("Base de Datos")]
+
+    M1 -->|Persistencia SQL| DB
+    M2 -->|Persistencia SQL| DB
+    M3 -->|Persistencia SQL| DB
+    M4 -->|Persistencia SQL| DB
+
+    style Backend fill:#f9edff,stroke:#c58af9,stroke-width:1px,color:#000
+    style M1 fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
+    style M2 fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
+    style M3 fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
+    style M4 fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
+    style DB fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
