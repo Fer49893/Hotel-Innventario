@@ -1,0 +1,74 @@
+classDiagram
+    class Habitacion {
+        +String numero
+        +String tipo
+        +String estado
+        +actualizarEstado(nuevoEstado) Void
+    }
+
+    class Usuario {
+        +String id
+        +String nombre
+        +String contrasena
+        +String rol
+        +autenticar(contrasena) Boolean
+        +validarPermiso(accion) Boolean
+    }
+
+    class Articulo {
+        +String id
+        +String nombre
+        +String categoria
+    }
+
+    class RevisionHabitacion {
+        +String id
+        +DateTime fechaHora
+        +JSON conteoFisico
+        +calcularDiferencias() Map
+        +notificarFaltantes() Void
+    }
+
+    class DotacionEstandar {
+        +String id
+        +Int cantidadBase
+        +actualizarCantidadBase(nuevaCantidad) Void
+    }
+
+    class Merma {
+        +String id
+        +Int cantidadBaja
+        +String motivoJustificacion
+        +DateTime fechaRegistro
+        +registrarBajaDefinitiva() Void
+        +guardarJustificacion() Void
+    }
+
+    class Consumo {
+        +String id
+        +Int cantidad
+        +DateTime fechaHora
+        +String estadoReporte
+        +registrarConsumo() Void
+        +marcarComoReportado() Void
+    }
+
+    class InventarioStock {
+        +String id
+        +String ubicacion
+        +Int cantidadDisponible
+        +incrementarStock(cantidad) Void
+        +descontarStock(cantidad) Void
+        +reubicarExistencias(destino, cantidad) Void
+    }
+
+    Habitacion "1" --> "0..*" RevisionHabitacion : es inspeccionada en >
+    Usuario "1" --> "0..*" RevisionHabitacion : realiza >
+    Habitacion "1" --> "0..*" DotacionEstandar : posee >
+    Usuario "1" --> "0..*" DotacionEstandar : define >
+    Usuario "1" --> "0..*" Merma : autoriza >
+    Articulo "1" --> "0..*" Merma : registra baja de >
+    Articulo "1" --> "0..*" InventarioStock : tiene existencias en >
+    Habitacion "1" --> "0..*" Consumo : genera >
+    RevisionHabitacion "1" --> "0..1" Consumo : deriva consumos a >
+    RevisionHabitacion "1" --> "0..*" InventarioStock : notifica cambios a >
