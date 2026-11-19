@@ -1,0 +1,26 @@
+flowchart TB
+    L["Personal de Limpieza"]
+    R["Recepción"]
+    D["Dueño"]
+
+    subgraph System["Hotel Innventario System"]
+        direction TB
+        FE["Aplicación Web<br/>/ PWA<br/>Figma Design /<br/>Frontend<br/>HTTPS"]
+        BE["Servicio Core<br/>Backend<br/>API REST / JSON"]
+        DB[("Base de Datos<br/>Relacional<br/>PostgreSQL /<br/>Supabase")]
+
+        FE -->|HTTP / JSON REST| BE
+        BE -->|SQL / TCP| DB
+    end
+
+    L -->|HTTPS| FE
+    R -->|HTTPS| FE
+    D -->|HTTPS| FE
+
+    style System fill:#f9edff,stroke:#c58af9,stroke-width:1.5px,color:#000
+    style L fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
+    style R fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
+    style D fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
+    style FE fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
+    style BE fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
+    style DB fill:#ffffff,stroke:#202124,stroke-width:1.5px,color:#000
